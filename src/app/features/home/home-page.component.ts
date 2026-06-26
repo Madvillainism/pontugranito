@@ -20,12 +20,18 @@ import { RouterLink } from '@angular/router';
         Centro de Voluntariado y Ayuda Humanitaria — Venezuela
       </p>
 
-      <div
-        class="mt-2 flex gap-1.5 text-xs font-medium"
-      >
-        <span class="px-2 py-0.5 rounded bg-venezuela-yellow/20 text-venezuela-yellow">Amarillo</span>
-        <span class="px-2 py-0.5 rounded bg-venezuela-blue/20 text-venezuela-blue">Azul</span>
-        <span class="px-2 py-0.5 rounded bg-venezuela-red/20 text-venezuela-red">Rojo</span>
+      <div class="mt-2 flex gap-1.5 text-xs font-medium">
+        <span
+          class="px-2 py-0.5 rounded bg-venezuela-yellow/20 text-venezuela-yellow"
+          >Amarillo</span
+        >
+        <span
+          class="px-2 py-0.5 rounded bg-venezuela-blue/20 text-venezuela-blue"
+          >Azul</span
+        >
+        <span class="px-2 py-0.5 rounded bg-venezuela-red/20 text-venezuela-red"
+          >Rojo</span
+        >
       </div>
 
       <nav class="mt-10 flex flex-col sm:flex-row gap-3 w-full max-w-sm">
@@ -50,7 +56,12 @@ import { RouterLink } from '@angular/router';
       </nav>
 
       <footer class="mt-16 text-neutral-600 text-xs">
-        Datos de Cruz Roja Venezolana y Alcaldía de Maracaibo · Junio 2026
+        Hecho por Carlos Perez · Datos de Cruz Roja Venezolana y Alcaldía de
+        Maracaibo · Junio 2026 <br />
+        Contacto:
+        <a href="mailto:carlosperezph&#64;hotmail.com"
+          >carlosperezph&#64;hotmail.com</a
+        >
       </footer>
     </section>
   `,

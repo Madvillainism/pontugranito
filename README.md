@@ -159,6 +159,63 @@ pontugranito/
 └── README.md
 ```
 
+## Configuración de Supabase
+
+Sigue estos pasos en orden para que la integración funcione:
+
+### 1. Crear proyecto en Supabase
+
+- Ir a [https://supabase.com](https://supabase.com)
+- Crear proyecto y copiar **Project URL** y **anon public key** de `Settings > API`
+
+### 2. Configurar variables de entorno
+
+En `src/environments/environment.ts`:
+
+```ts
+export const environment = {
+  production: false,
+  supabaseUrl: 'https://TU_PROYECTO.supabase.co',
+  supabaseKey: 'tu-anon-key',
+};
+```
+
+### 3. Crear la tabla y políticas RLS
+
+Abrir el **SQL Editor** de Supabase y ejecutar:
+
+```sql
+CREATE TABLE profesionales_voluntarios (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  nombre text NOT NULL,
+  especialidad text NOT NULL,
+  estado text NOT NULL,
+  zona_especifica text NOT NULL,
+  contacto text NOT NULL,
+  disponibilidad boolean NOT NULL DEFAULT true,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+ALTER TABLE profesionales_voluntarios ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "select_publico" ON profesionales_voluntarios
+  FOR SELECT USING (true);
+
+CREATE POLICY "insert_anonimo" ON profesionales_voluntarios
+  FOR INSERT WITH CHECK (true);
+```
+
+### 4. Configurar CORS
+
+En `Supabase Dashboard > Settings > API > Config` agregar:
+```
+http://localhost:4200
+```
+
+### 5. Verificar conexión
+
+Ir a `/test-supabase` y presionar **"Probar conexión"**. Si todo está bien, verás el estado "Conectado".
+
 ## Rutas
 
 | Ruta | Componente | Descripción |
@@ -167,6 +224,7 @@ pontugranito/
 | `/voluntarios` | `VoluntariosPageComponent` | Catálogo de voluntarios disponibles |
 | `/emergencia` | `EmergencyContactComponent` | Contactos Cruz Roja Venezolana |
 | `/acopio` | `AcopioPageComponent` | Centros de acopio en Maracaibo |
+| `/test-supabase` | `TestSupabaseComponent` | Diagnóstico e inserción de prueba |
 
 ## Contactos de emergencia incluidos
 
