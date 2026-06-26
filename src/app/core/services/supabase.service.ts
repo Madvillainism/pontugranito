@@ -24,20 +24,25 @@ export class SupabaseService {
     this.conexionOk.set(null);
 
     try {
-      const { error } = await this.supabase.from('profesionales_voluntarios').select('id', { count: 'exact', head: true });
+      const { error, count } = await this.supabase
+        .from('profesionales_voluntarios')
+        .select('*', { count: 'exact', head: true });
+
       this.conexionOk.set(!error);
       if (error) {
         if (error.message?.includes('relation') || error.code === '42P01') {
-          this.error.set(`La tabla 'profesionales_voluntarios' no existe en Supabase. Creala con el SQL de docs/supabase.md`);
+          this.error.set('La tabla no existe. Creala con: CREATE TABLE profesionales_voluntarios (...)');
         } else if (error.message?.includes('permission') || error.code === '42501') {
-          this.error.set(`Error de permisos (RLS). Verifica las políticas en Supabase: SELECT público, INSERT requiere autenticación.`);
+          this.error.set('RLS bloquea SELECT. Crea política: CREATE POLICY "select_publico" ON profesionales_voluntarios FOR SELECT USING (true);');
         } else {
           this.error.set(error.message);
         }
+      } else {
+        console.log(`Conexión OK — ${count ?? 0} registros`);
       }
     } catch (err) {
       this.conexionOk.set(false);
-      this.error.set(err instanceof Error ? err.message : 'Error de red — verifica la URL del proyecto Supabase');
+      this.error.set(err instanceof Error ? err.message : 'Error de red — verifica URL y CORS en Supabase');
     }
   }
 
@@ -74,7 +79,7 @@ export class SupabaseService {
         const { data, error } = await this.supabase
           .from('profesionales_voluntarios')
           .select('*')
-          .order('created_at', { ascending: false });
+          .order('id', { ascending: false });
 
         if (error) throw error;
         this.voluntarios.set(data as Voluntario[]);
@@ -86,7 +91,9 @@ export class SupabaseService {
     });
   }
 
-  async crearVoluntario(voluntario: Omit<Voluntario, 'id' | 'created_at'>): Promise<boolean> {
+  async crearVoluntario(
+    datos: Omit<Voluntario, 'id' | 'created_at'>
+  ): Promise<boolean> {
     return this.ngZone.run(async () => {
       this.loading.set(true);
       this.error.set(null);
@@ -94,7 +101,7 @@ export class SupabaseService {
       try {
         const { error } = await this.supabase
           .from('profesionales_voluntarios')
-          .insert([voluntario]);
+          .insert([datos]);
 
         if (error) throw error;
         await this.getTodosVoluntarios();
@@ -102,9 +109,11 @@ export class SupabaseService {
       } catch (err) {
         const msg = err instanceof Error ? err.message : 'Error desconocido';
         if (msg.includes('permission') || msg.includes('violates row-level security')) {
-          this.error.set('RLS bloquea INSERT. Habilita INSERT anónimo o usa un token en Supabase.');
+          this.error.set(
+            'RLS bloquea INSERT. En Supabase > SQL Editor, ejecuta: CREATE POLICY "insert_anonimo" ON profesionales_voluntarios FOR INSERT WITH CHECK (true);'
+          );
         } else if (msg.includes('relation') || msg.includes('does not exist')) {
-          this.error.set(`La tabla 'profesionales_voluntarios' no existe. Creala desde el SQL Editor de Supabase.`);
+          this.error.set('La tabla no existe. Crea la tabla desde el SQL Editor de Supabase.');
         } else {
           this.error.set(msg);
         }

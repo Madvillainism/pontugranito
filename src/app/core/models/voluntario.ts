@@ -3,8 +3,8 @@ export interface Voluntario {
   nombre: string;
   especialidad: string;
   estado: string;
-  zona_especifica: string;
-  contacto: string;
+  zona: string;
+  contacto: number;
   disponibilidad: boolean;
   created_at: string;
 }

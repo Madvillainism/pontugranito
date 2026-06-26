@@ -38,7 +38,7 @@ import { Voluntario } from '../../../core/models/voluntario';
         <span
           class="px-2.5 py-1 rounded-md bg-neutral-800 text-neutral-300 text-xs"
         >
-          {{ voluntario.zona_especifica }}, {{ voluntario.estado }}
+          {{ voluntario.zona }}, {{ voluntario.estado }}
         </span>
       </div>
 

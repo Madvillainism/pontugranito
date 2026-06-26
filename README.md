@@ -93,20 +93,43 @@ export const environment = {
 
 Reemplazar `YOUR_SUPABASE_URL` y `YOUR_SUPABASE_ANON_KEY` con las credenciales de tu proyecto en [Supabase](https://supabase.com).
 
-La tabla requerida es `profesionales_voluntarios`:
+La tabla requerida es `profesionales_voluntarios`. Ejecutar en el SQL Editor de Supabase:
+
+```sql
+CREATE TABLE profesionales_voluntarios (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  nombre text NOT NULL,
+  especialidad text NOT NULL,
+  estado text NOT NULL,
+  zona text NOT NULL,
+  contacto numeric NOT NULL,
+  disponibilidad boolean NOT NULL DEFAULT true,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+ALTER TABLE profesionales_voluntarios ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "select_publico" ON profesionales_voluntarios
+  FOR SELECT USING (true);
+
+CREATE POLICY "insert_anonimo" ON profesionales_voluntarios
+  FOR INSERT WITH CHECK (true);
+```
+
+Columnas:
 
 | Columna | Tipo | Descripción |
 |---|---|---|
-| `id` | uuid (PK) | Identificador único |
-| `nombre` | text | Nombre del voluntario |
-| `especialidad` | text | Médico, Electricista, etc. |
-| `estado` | text | Yaracuy, Caracas, etc. |
-| `zona_especifica` | text | Municipio o sector |
-| `contacto` | text | Teléfono de contacto |
-| `disponibilidad` | boolean | true = disponible |
-| `created_at` | timestamp | Fecha de registro |
+| `id` | `uuid PK` | Identificador único (auto) |
+| `nombre` | `text` | Nombre del voluntario |
+| `especialidad` | `text` | Médico, Electricista, etc. |
+| `estado` | `text` | Yaracuy, Caracas, etc. |
+| `zona` | `text` | Municipio o sector |
+| `contacto` | `numeric` | Teléfono solo dígitos |
+| `disponibilidad` | `boolean` | true = disponible |
+| `created_at` | `timestamptz` | Fecha de registro (auto) |
 
-Políticas RLS: `SELECT` público, `INSERT` requiere autenticación.
+> **Importante:** `contacto` es `numeric` (solo números, ej: 584121234567).
 
 ## Desarrollo
 

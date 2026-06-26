@@ -12,13 +12,12 @@ import { SupabaseService } from '../../core/services/supabase.service';
     <section class="min-h-screen bg-neutral-950 px-4 py-8 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto space-y-8">
 
-        <!-- Encabezado -->
         <div>
           <h1 class="text-2xl font-bold text-venezuela-yellow">Prueba Supabase</h1>
           <p class="text-neutral-400 text-sm mt-1">Diagnóstico de conexión e inserción de voluntarios</p>
         </div>
 
-        <!-- Panel de diagnóstico -->
+        <!-- Diagnóstico -->
         <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-5">
           <h2 class="text-neutral-200 font-semibold text-sm mb-3">Diagnóstico de conexión</h2>
 
@@ -40,18 +39,19 @@ import { SupabaseService } from '../../core/services/supabase.service';
 
           @if (svc.error(); as err) {
             <div class="bg-venezuela-red/10 border border-venezuela-red/30 rounded-lg p-3">
-              <p class="text-venezuela-red text-xs font-medium">{{ err }}</p>
+              <p class="text-venezuela-red text-xs whitespace-pre-wrap">{{ err }}</p>
             </div>
           }
 
           <div class="mt-3 text-xs text-neutral-500 space-y-1">
             <p>URL: <code class="text-neutral-300">{{ supabaseUrl }}</code></p>
             <p>Tabla: <code class="text-neutral-300">profesionales_voluntarios</code></p>
+            <p>Columnas: <code class="text-neutral-300">nombre, especialidad, estado, zona, contacto (num), disponibilidad</code></p>
             <p>Registros: <code class="text-neutral-300">{{ svc.voluntarios().length }}</code></p>
           </div>
         </div>
 
-        <!-- Formulario de inserción -->
+        <!-- Formulario -->
         <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
           <h2 class="text-neutral-200 font-semibold text-sm mb-4">Insertar voluntario de prueba</h2>
 
@@ -63,7 +63,7 @@ import { SupabaseService } from '../../core/services/supabase.service';
 
           @if (svc.error(); as err) {
             <div class="bg-venezuela-red/10 border border-venezuela-red/30 rounded-lg p-3 mb-4">
-              <p class="text-venezuela-red text-xs font-medium">{{ err }}</p>
+              <p class="text-venezuela-red text-xs whitespace-pre-wrap">{{ err }}</p>
             </div>
           }
 
@@ -89,15 +89,15 @@ import { SupabaseService } from '../../core/services/supabase.service';
               </div>
               <div>
                 <label class="block text-neutral-400 text-xs mb-1">Zona *</label>
-                <input name="zona_especifica" ngModel required
+                <input name="zona" ngModel required
                   class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-neutral-50 text-sm focus:outline-none focus:border-venezuela-yellow placeholder-neutral-600"
                   placeholder="San Felipe" />
               </div>
               <div>
-                <label class="block text-neutral-400 text-xs mb-1">Contacto *</label>
-                <input name="contacto" ngModel required
+                <label class="block text-neutral-400 text-xs mb-1">Contacto * <span class="text-neutral-600">(solo números)</span></label>
+                <input name="contacto" ngModel required type="number"
                   class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-neutral-50 text-sm focus:outline-none focus:border-venezuela-yellow placeholder-neutral-600"
-                  placeholder="+58 412 345 6789" />
+                  placeholder="584121234567" />
               </div>
               <div class="flex items-end pb-1">
                 <label class="flex items-center gap-2 cursor-pointer select-none">
@@ -115,7 +115,7 @@ import { SupabaseService } from '../../core/services/supabase.service';
           </form>
         </div>
 
-        <!-- Lista de voluntarios -->
+        <!-- Lista -->
         <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-5">
           <div class="flex items-center justify-between mb-4">
             <h2 class="text-neutral-200 font-semibold text-sm">Voluntarios en Supabase</h2>
@@ -141,14 +141,14 @@ import { SupabaseService } from '../../core/services/supabase.service';
                     </span>
                   </div>
                   <p class="text-neutral-400 text-xs mt-1">
-                    {{ v.especialidad }} · {{ v.zona_especifica }}, {{ v.estado }}
+                    {{ v.especialidad }} · {{ v.zona }}, {{ v.estado }}
                   </p>
                   <p class="text-venezuela-blue text-xs mt-0.5">{{ v.contacto }}</p>
                 </div>
               } @empty {
                 <div class="text-center py-6 text-neutral-500">
                   <p class="text-sm">No hay voluntarios registrados</p>
-                  <p class="text-xs mt-1">Usa el formulario de arriba para insertar uno, o configura Supabase primero</p>
+                  <p class="text-xs mt-1">Usa el formulario para insertar uno</p>
                 </div>
               }
             </div>
@@ -190,8 +190,8 @@ export class TestSupabaseComponent implements OnInit {
       nombre: form.value.nombre,
       especialidad: form.value.especialidad,
       estado: form.value.estado,
-      zona_especifica: form.value.zona_especifica,
-      contacto: form.value.contacto,
+      zona: form.value.zona,
+      contacto: Number(form.value.contacto),
       disponibilidad: form.value.disponibilidad ?? false,
     });
 
