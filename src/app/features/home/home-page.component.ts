@@ -13,7 +13,9 @@ import { RouterLink } from '@angular/router';
         class="w-20 h-20 lg:w-28 lg:h-28 rounded-full bg-gradient-to-br from-venezuela-yellow via-venezuela-blue to-venezuela-red mb-8 shadow-lg shadow-venezuela-blue/20"
       ></div>
 
-      <h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-neutral-100 leading-tight">
+      <h1
+        class="text-3xl sm:text-4xl lg:text-6xl font-bold text-neutral-100 leading-tight"
+      >
         Pontugranito
       </h1>
       <p class="text-neutral-300 mt-3 max-w-md text-sm sm:text-base lg:text-lg">
@@ -52,6 +54,12 @@ import { RouterLink } from '@angular/router';
           class="flex-1 py-4 px-8 lg:py-5 lg:px-10 rounded-xl bg-venezuela-yellow text-neutral-950 font-bold text-base lg:text-lg hover:bg-yellow-400 transition text-center"
         >
           Centros de Acopio
+        </a>
+        <a
+          routerLink="/test-supabase"
+          class="flex-1 py-4 px-8 lg:py-5 lg:px-10 rounded-xl bg-venezuela-yellow text-neutral-950 font-bold text-base lg:text-lg hover:bg-yellow-400 transition text-center"
+        >
+          Quiero ser voluntario
         </a>
       </nav>
 
