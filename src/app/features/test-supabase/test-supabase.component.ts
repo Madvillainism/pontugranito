@@ -14,12 +14,11 @@ import { SupabaseService } from '../../core/services/supabase.service';
 
         <div>
           <h1 class="text-2xl font-bold text-venezuela-yellow">Prueba Supabase</h1>
-          <p class="text-neutral-400 text-sm mt-1">Diagnóstico de conexión e inserción de voluntarios</p>
+          <p class="text-neutral-300 text-sm mt-1">Diagnóstico de conexión e inserción de voluntarios</p>
         </div>
 
-        <!-- Diagnóstico -->
-        <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-5">
-          <h2 class="text-neutral-200 font-semibold text-sm mb-3">Diagnóstico de conexión</h2>
+        <div class="bg-neutral-800 border border-neutral-700 rounded-xl p-5">
+          <h2 class="text-neutral-100 font-semibold text-sm mb-3">Diagnóstico de conexión</h2>
 
           <div class="flex items-center gap-2 mb-3">
             <button (click)="diagnosticar()" [disabled]="svc.loading()"
@@ -38,31 +37,30 @@ import { SupabaseService } from '../../core/services/supabase.service';
           </div>
 
           @if (svc.error(); as err) {
-            <div class="bg-venezuela-red/10 border border-venezuela-red/30 rounded-lg p-3">
+            <div class="bg-venezuela-red/10 border border-venezuela-red/40 rounded-lg p-3">
               <p class="text-venezuela-red text-xs whitespace-pre-wrap">{{ err }}</p>
             </div>
           }
 
-          <div class="mt-3 text-xs text-neutral-500 space-y-1">
-            <p>URL: <code class="text-neutral-300">{{ supabaseUrl }}</code></p>
-            <p>Tabla: <code class="text-neutral-300">profesionales_voluntarios</code></p>
-            <p>Columnas: <code class="text-neutral-300">nombre, especialidad, estado, zona, contacto (num), disponibilidad</code></p>
-            <p>Registros: <code class="text-neutral-300">{{ svc.voluntarios().length }}</code></p>
+          <div class="mt-3 text-xs text-neutral-400 space-y-1">
+            <p>URL: <code class="text-neutral-200">{{ supabaseUrl }}</code></p>
+            <p>Tabla: <code class="text-neutral-200">profesionales_voluntarios</code></p>
+            <p>Columnas: <code class="text-neutral-200">nombre, especialidad, estado, zona, contacto (num), disponibilidad</code></p>
+            <p>Registros: <code class="text-neutral-200">{{ svc.voluntarios().length }}</code></p>
           </div>
         </div>
 
-        <!-- Formulario -->
-        <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
-          <h2 class="text-neutral-200 font-semibold text-sm mb-4">Insertar voluntario de prueba</h2>
+        <div class="bg-neutral-800 border border-neutral-700 rounded-xl p-6">
+          <h2 class="text-neutral-100 font-semibold text-sm mb-4">Insertar voluntario de prueba</h2>
 
           @if (mensajeExito) {
-            <div class="bg-green-900/20 border border-green-700/30 rounded-lg p-3 mb-4">
+            <div class="bg-green-900/20 border border-green-700/40 rounded-lg p-3 mb-4">
               <p class="text-green-400 text-xs font-medium">{{ mensajeExito }}</p>
             </div>
           }
 
           @if (svc.error(); as err) {
-            <div class="bg-venezuela-red/10 border border-venezuela-red/30 rounded-lg p-3 mb-4">
+            <div class="bg-venezuela-red/10 border border-venezuela-red/40 rounded-lg p-3 mb-4">
               <p class="text-venezuela-red text-xs whitespace-pre-wrap">{{ err }}</p>
             </div>
           }
@@ -70,40 +68,40 @@ import { SupabaseService } from '../../core/services/supabase.service';
           <form #form="ngForm" (ngSubmit)="enviar(form)">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
               <div>
-                <label class="block text-neutral-400 text-xs mb-1">Nombre *</label>
+                <label class="block text-neutral-300 text-xs mb-1">Nombre *</label>
                 <input name="nombre" ngModel required
-                  class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-neutral-50 text-sm focus:outline-none focus:border-venezuela-yellow placeholder-neutral-600"
+                  class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-3 py-2 text-neutral-100 text-sm focus:outline-none focus:border-venezuela-yellow placeholder-neutral-500"
                   placeholder="María Pérez" />
               </div>
               <div>
-                <label class="block text-neutral-400 text-xs mb-1">Especialidad *</label>
+                <label class="block text-neutral-300 text-xs mb-1">Especialidad *</label>
                 <input name="especialidad" ngModel required
-                  class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-neutral-50 text-sm focus:outline-none focus:border-venezuela-yellow placeholder-neutral-600"
+                  class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-3 py-2 text-neutral-100 text-sm focus:outline-none focus:border-venezuela-yellow placeholder-neutral-500"
                   placeholder="Médico General" />
               </div>
               <div>
-                <label class="block text-neutral-400 text-xs mb-1">Estado *</label>
+                <label class="block text-neutral-300 text-xs mb-1">Estado *</label>
                 <input name="estado" ngModel required
-                  class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-neutral-50 text-sm focus:outline-none focus:border-venezuela-yellow placeholder-neutral-600"
+                  class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-3 py-2 text-neutral-100 text-sm focus:outline-none focus:border-venezuela-yellow placeholder-neutral-500"
                   placeholder="Yaracuy" />
               </div>
               <div>
-                <label class="block text-neutral-400 text-xs mb-1">Zona *</label>
+                <label class="block text-neutral-300 text-xs mb-1">Zona *</label>
                 <input name="zona" ngModel required
-                  class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-neutral-50 text-sm focus:outline-none focus:border-venezuela-yellow placeholder-neutral-600"
+                  class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-3 py-2 text-neutral-100 text-sm focus:outline-none focus:border-venezuela-yellow placeholder-neutral-500"
                   placeholder="San Felipe" />
               </div>
               <div>
-                <label class="block text-neutral-400 text-xs mb-1">Contacto * <span class="text-neutral-600">(solo números)</span></label>
+                <label class="block text-neutral-300 text-xs mb-1">Contacto * <span class="text-neutral-500">(solo números)</span></label>
                 <input name="contacto" ngModel required type="number"
-                  class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-neutral-50 text-sm focus:outline-none focus:border-venezuela-yellow placeholder-neutral-600"
+                  class="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-3 py-2 text-neutral-100 text-sm focus:outline-none focus:border-venezuela-yellow placeholder-neutral-500"
                   placeholder="584121234567" />
               </div>
               <div class="flex items-end pb-1">
                 <label class="flex items-center gap-2 cursor-pointer select-none">
                   <input type="checkbox" name="disponibilidad" ngModel
-                    class="w-4 h-4 rounded bg-neutral-800 border-neutral-700 text-venezuela-yellow focus:ring-venezuela-yellow" />
-                  <span class="text-neutral-300 text-sm">Disponible</span>
+                    class="w-4 h-4 rounded bg-neutral-700 border-neutral-600 text-venezuela-yellow focus:ring-venezuela-yellow" />
+                  <span class="text-neutral-200 text-sm">Disponible</span>
                 </label>
               </div>
             </div>
@@ -115,10 +113,9 @@ import { SupabaseService } from '../../core/services/supabase.service';
           </form>
         </div>
 
-        <!-- Lista -->
-        <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-5">
+        <div class="bg-neutral-800 border border-neutral-700 rounded-xl p-5">
           <div class="flex items-center justify-between mb-4">
-            <h2 class="text-neutral-200 font-semibold text-sm">Voluntarios en Supabase</h2>
+            <h2 class="text-neutral-100 font-semibold text-sm">Voluntarios en Supabase</h2>
             <button (click)="recargar()" [disabled]="svc.loading()"
               class="text-xs text-venezuela-blue hover:text-blue-400 transition disabled:opacity-40">
               @if (svc.loading()) { Cargando... } @else { Recargar }
@@ -127,26 +124,26 @@ import { SupabaseService } from '../../core/services/supabase.service';
 
           @if (svc.loading() && svc.voluntarios().length === 0) {
             <div class="flex justify-center py-8">
-              <div class="w-8 h-8 border-4 border-neutral-800 border-t-venezuela-yellow rounded-full animate-spin"></div>
+              <div class="w-8 h-8 border-4 border-neutral-700 border-t-venezuela-yellow rounded-full animate-spin"></div>
             </div>
           } @else {
             <div class="space-y-2">
               @for (v of svc.voluntarios(); track v.id) {
-                <div class="bg-neutral-800/50 border border-neutral-700/50 rounded-lg p-3 text-sm">
+                <div class="bg-neutral-700/50 border border-neutral-600/50 rounded-lg p-3 text-sm">
                   <div class="flex items-center justify-between gap-2">
-                    <span class="text-neutral-50 font-medium truncate">{{ v.nombre }}</span>
+                    <span class="text-neutral-100 font-medium truncate">{{ v.nombre }}</span>
                     <span class="shrink-0 text-xs px-2 py-0.5 rounded-full font-medium"
-                      [ngClass]="v.disponibilidad ? 'bg-green-900/30 text-green-400' : 'bg-neutral-700/50 text-neutral-400'">
+                      [ngClass]="v.disponibilidad ? 'bg-green-900/30 text-green-400' : 'bg-neutral-600/50 text-neutral-300'">
                       {{ v.disponibilidad ? 'Disponible' : 'No disponible' }}
                     </span>
                   </div>
-                  <p class="text-neutral-400 text-xs mt-1">
+                  <p class="text-neutral-300 text-xs mt-1">
                     {{ v.especialidad }} · {{ v.zona }}, {{ v.estado }}
                   </p>
                   <p class="text-venezuela-blue text-xs mt-0.5">{{ v.contacto }}</p>
                 </div>
               } @empty {
-                <div class="text-center py-6 text-neutral-500">
+                <div class="text-center py-6 text-neutral-400">
                   <p class="text-sm">No hay voluntarios registrados</p>
                   <p class="text-xs mt-1">Usa el formulario para insertar uno</p>
                 </div>

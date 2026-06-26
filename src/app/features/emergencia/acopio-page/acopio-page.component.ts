@@ -14,12 +14,11 @@ import { CentroAcopio } from '../../../core/models/centro-acopio';
         >
           Centros de Acopio — Maracaibo
         </h1>
-        <p class="text-neutral-400 mt-2 text-sm sm:text-base">
+        <p class="text-neutral-300 mt-2 text-sm sm:text-base">
           {{ centros.length }} puntos habilitados para recibir donaciones
         </p>
       </header>
 
-      <!-- Filtro por tipo -->
       <div class="max-w-7xl mx-auto mb-6 flex flex-wrap gap-2">
         @for (tipo of tipos; track tipo) {
           <button
@@ -28,8 +27,8 @@ import { CentroAcopio } from '../../../core/models/centro-acopio';
             [class.bg-venezuela-blue]="filtroTipo === tipo"
             [class.text-white]="filtroTipo === tipo"
             [class.border-venezuela-blue]="filtroTipo === tipo"
-            [class.bg-neutral-900]="filtroTipo !== tipo"
-            [class.text-neutral-300]="filtroTipo !== tipo"
+            [class.bg-neutral-800]="filtroTipo !== tipo"
+            [class.text-neutral-200]="filtroTipo !== tipo"
             [class.border-neutral-700]="filtroTipo !== tipo"
             [class.hover:border-neutral-500]="filtroTipo !== tipo"
           >
@@ -39,21 +38,20 @@ import { CentroAcopio } from '../../../core/models/centro-acopio';
         @if (filtroTipo) {
           <button
             (click)="filtroTipo = null"
-            class="px-3 py-1.5 rounded-lg text-xs font-medium bg-neutral-800 text-neutral-400 border border-neutral-700 hover:border-venezuela-red/50 transition"
+            class="px-3 py-1.5 rounded-lg text-xs font-medium bg-neutral-700 text-neutral-300 border border-neutral-700 hover:border-venezuela-red/50 transition"
           >
             Limpiar filtro
           </button>
         }
       </div>
 
-      <!-- Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
         @for (centro of centrosFiltrados(); track centro.id) {
           <article
-            class="bg-neutral-900 border border-neutral-800 rounded-xl p-5 flex flex-col gap-3 transition hover:border-neutral-700"
+            class="bg-neutral-800 border border-neutral-700 rounded-xl p-5 flex flex-col gap-3 transition hover:border-neutral-600"
           >
             <div class="flex items-start justify-between gap-2">
-              <h3 class="text-neutral-50 font-semibold text-sm leading-tight">
+              <h3 class="text-neutral-100 font-semibold text-sm leading-tight">
                 {{ centro.nombre }}
               </h3>
               <span
@@ -62,29 +60,29 @@ import { CentroAcopio } from '../../../core/models/centro-acopio';
                   'bg-venezuela-yellow/20 text-venezuela-yellow': centro.tipo === 'Alcaldía',
                   'bg-venezuela-red/20 text-venezuela-red': centro.tipo === 'Bomberos',
                   'bg-venezuela-blue/20 text-venezuela-blue': centro.tipo === 'Gobierno Regional',
-                  'bg-neutral-800 text-neutral-300': centro.tipo === 'Iglesia' || centro.tipo === 'ONG' || centro.tipo === 'Público'
+                  'bg-neutral-700 text-neutral-200': centro.tipo === 'Iglesia' || centro.tipo === 'ONG' || centro.tipo === 'Público'
                 }"
               >
                 {{ centro.tipo }}
               </span>
             </div>
-            <p class="text-neutral-400 text-xs leading-relaxed">
+            <p class="text-neutral-300 text-xs leading-relaxed">
               {{ centro.direccion }}
             </p>
             <div class="mt-auto flex items-center justify-between text-xs">
-              <span class="text-neutral-500">{{ centro.horario }}</span>
+              <span class="text-neutral-400">{{ centro.horario }}</span>
               @if (centro.activo) {
                 <span class="text-green-400 flex items-center gap-1">
                   <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
                   Activo
                 </span>
               } @else {
-                <span class="text-neutral-500">Por confirmar</span>
+                <span class="text-neutral-400">Por confirmar</span>
               }
             </div>
           </article>
         } @empty {
-          <div class="col-span-full text-center py-20 text-neutral-500">
+          <div class="col-span-full text-center py-20 text-neutral-400">
             <p class="text-lg">No hay centros con ese filtro</p>
           </div>
         }

@@ -14,7 +14,7 @@ import { VoluntarioCardComponent } from '../voluntario-card/voluntario-card.comp
         >
           Voluntarios Disponibles
         </h1>
-        <p class="text-neutral-400 mt-2 text-sm sm:text-base">
+        <p class="text-neutral-300 mt-2 text-sm sm:text-base">
           Profesionales y voluntarios listos para ayudar
         </p>
       </header>
@@ -22,15 +22,15 @@ import { VoluntarioCardComponent } from '../voluntario-card/voluntario-card.comp
       @if (supabaseService.loading()) {
         <div class="flex justify-center py-20">
           <div
-            class="w-10 h-10 border-4 border-neutral-800 border-t-venezuela-yellow rounded-full animate-spin"
+            class="w-10 h-10 border-4 border-neutral-700 border-t-venezuela-yellow rounded-full animate-spin"
           ></div>
         </div>
       } @else if (supabaseService.error()) {
         <div
-          class="max-w-md mx-auto bg-venezuela-red/10 border border-venezuela-red/30 rounded-xl p-6 text-center"
+          class="max-w-md mx-auto bg-venezuela-red/10 border border-venezuela-red/40 rounded-xl p-6 text-center"
         >
           <p class="text-venezuela-red font-medium">Error al cargar voluntarios</p>
-          <p class="text-neutral-400 text-sm mt-1">{{ supabaseService.error() }}</p>
+          <p class="text-neutral-300 text-sm mt-1">{{ supabaseService.error() }}</p>
           <button
             (click)="reintentar()"
             class="mt-4 px-4 py-2 bg-venezuela-red text-white rounded-lg text-sm hover:bg-red-700"
@@ -45,7 +45,7 @@ import { VoluntarioCardComponent } from '../voluntario-card/voluntario-card.comp
           @for (vol of supabaseService.voluntarios(); track vol.id) {
             <app-voluntario-card [voluntario]="vol" />
           } @empty {
-            <div class="col-span-full text-center py-20 text-neutral-500">
+            <div class="col-span-full text-center py-20 text-neutral-400">
               <p class="text-lg">No hay voluntarios registrados aún</p>
             </div>
           }

@@ -14,7 +14,7 @@ import { ContactoEmergencia } from '../../../core/models/contacto-emergencia';
         >
           Contactos de Emergencia
         </h1>
-        <p class="text-neutral-400 mt-2 text-sm sm:text-base">
+        <p class="text-neutral-300 mt-2 text-sm sm:text-base">
           Líneas directas para asistencia humanitaria
         </p>
       </header>
@@ -22,7 +22,7 @@ import { ContactoEmergencia } from '../../../core/models/contacto-emergencia';
       <div class="max-w-4xl mx-auto space-y-4">
         @for (contacto of contactos; track contacto.id) {
           <article
-            class="bg-neutral-900 border border-neutral-800 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4"
+            class="bg-neutral-800 border border-neutral-700 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4"
           >
             <div class="flex-1">
               <div class="flex items-center gap-2 mb-1">
@@ -36,10 +36,10 @@ import { ContactoEmergencia } from '../../../core/models/contacto-emergencia';
                 >
                   {{ contacto.ambito }}
                 </span>
-                <span class="text-xs text-neutral-500">{{ contacto.tipo }}</span>
+                <span class="text-xs text-neutral-400">{{ contacto.tipo }}</span>
               </div>
-              <h3 class="text-neutral-50 font-semibold">{{ contacto.nombre }}</h3>
-              <p class="text-neutral-400 text-sm mt-0.5">{{ contacto.direccion }}</p>
+              <h3 class="text-neutral-100 font-semibold">{{ contacto.nombre }}</h3>
+              <p class="text-neutral-300 text-sm mt-0.5">{{ contacto.direccion }}</p>
             </div>
 
             <div class="flex flex-col gap-2 shrink-0">
