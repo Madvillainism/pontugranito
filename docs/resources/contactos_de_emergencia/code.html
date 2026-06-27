@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pontugranito - Contactos de Emergencia</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-fixed": "#dee0ff",
+                        "on-tertiary-fixed": "#410003",
+                        "primary-fixed": "#ffdf9e",
+                        "on-secondary-container": "#a8b4ff",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-tint": "#fabd00",
+                        "surface-container": "#201f1f",
+                        "on-secondary": "#08218a",
+                        "on-primary": "#3f2e00",
+                        "on-primary-fixed": "#261a00",
+                        "tertiary": "#ffe0dd",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#785900",
+                        "on-tertiary": "#680008",
+                        "primary": "#ffe4af",
+                        "on-error": "#690005",
+                        "background": "#131313",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed": "#ffdad6",
+                        "secondary-fixed-dim": "#bac3ff",
+                        "error-container": "#93000a",
+                        "on-surface-variant": "#d4c5ab",
+                        "surface-container-highest": "#353534",
+                        "outline-variant": "#4f4632",
+                        "on-tertiary-fixed-variant": "#930010",
+                        "on-background": "#e5e2e1",
+                        "on-primary-fixed-variant": "#5b4300",
+                        "surface-bright": "#393939",
+                        "inverse-on-surface": "#313030",
+                        "surface": "#131313",
+                        "surface-variant": "#353534",
+                        "on-tertiary-container": "#ac0c18",
+                        "primary-container": "#ffc107",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#fabd00",
+                        "secondary-container": "#2c3ea3",
+                        "tertiary-container": "#ffbab3",
+                        "on-secondary-fixed": "#00105c",
+                        "inverse-surface": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#293ca0",
+                        "secondary": "#bac3ff",
+                        "on-primary-container": "#6d5100",
+                        "tertiary-fixed-dim": "#ffb3ac",
+                        "surface-container-low": "#1c1b1b",
+                        "outline": "#9c8f78",
+                        "on-surface": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-desktop": "32px",
+                        "container-max-width": "1280px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-md-mobile": ["Manrope"],
+                        "headline-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .card-elevation {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: #1e1e1e;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-background border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed dark:text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">Pontugranito</h1>
+</div>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-1 rounded" href="#">Voluntarios</a>
+<a class="font-label-md text-label-md text-primary dark:text-primary-fixed px-3 py-1 rounded underline decoration-2 underline-offset-4" href="#">Emergencia</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-1 rounded" href="#">Acopio</a>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop pt-8 pb-24">
+<!-- Header Section -->
+<section class="mb-10">
+<div class="flex items-center gap-2 mb-2">
+<div class="h-8 w-1 bg-on-tertiary-container rounded-full"></div>
+<h2 class="text-on-tertiary-container font-headline-md text-headline-md md:text-headline-md mobile:text-headline-md-mobile">Contactos de Emergencia</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Líneas directas para asistencia humanitaria inmediata en territorio nacional.</p>
+</section>
+<!-- Emergency Cards Grid -->
+<div class="grid grid-cols-1 gap-6">
+<!-- Card 1: Cruz Roja Nacional -->
+<div class="card-elevation rounded-xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 transition-all hover:border-primary/20">
+<div class="flex-grow">
+<div class="flex gap-2 mb-3">
+<span class="font-label-md text-label-md px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded text-[10px] uppercase tracking-wider">Nacional</span>
+<span class="font-label-md text-label-md px-2 py-0.5 bg-surface-container-highest text-on-surface-variant rounded text-[10px] uppercase tracking-wider">Organismo Humanitario</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Cruz Roja Venezolana — Sede Nacional</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Av. Andrés Bello, Caracas</p>
+</div>
+<div class="flex flex-col gap-3 w-full md:w-auto">
+<a class="flex items-center justify-center gap-2 bg-on-tertiary-container text-white px-6 py-3 rounded-xl font-label-md text-label-md active:scale-95 transition-all" href="tel:+582125714380">
+<span class="material-symbols-outlined">call</span>
+                        +582125714380
+                    </a>
+<a class="flex items-center justify-center gap-2 bg-secondary-container text-white px-6 py-3 rounded-xl font-label-md text-label-md active:scale-95 transition-all" href="mailto:info@cruzroja.ve">
+<span class="material-symbols-outlined">mail</span>
+                        info@cruzroja.ve
+                    </a>
+</div>
+</div>
+<!-- Card 2: Cruz Roja Zulia -->
+<div class="card-elevation rounded-xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 transition-all hover:border-primary/20">
+<div class="flex-grow">
+<div class="flex gap-2 mb-3">
+<span class="font-label-md text-label-md px-2 py-0.5 bg-primary-fixed-dim/20 text-primary-fixed rounded text-[10px] uppercase tracking-wider">Regional</span>
+<span class="font-label-md text-label-md px-2 py-0.5 bg-surface-container-highest text-on-surface-variant rounded text-[10px] uppercase tracking-wider">Filial Regional</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Cruz Roja Venezolana — Seccional Zulia</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Av. 11 Esq. Calle 83, Sector Veritas, Maracaibo</p>
+</div>
+<div class="flex flex-col gap-3 w-full md:w-auto">
+<a class="flex items-center justify-center gap-2 bg-on-tertiary-container text-white px-6 py-3 rounded-xl font-label-md text-label-md active:scale-95 transition-all" href="tel:+582617986455">
+<span class="material-symbols-outlined">call</span>
+                        +582617986455
+                    </a>
+<a class="flex items-center justify-center gap-2 bg-secondary-container text-white px-6 py-3 rounded-xl font-label-md text-label-md active:scale-95 transition-all" href="mailto:maracaibo@cruzroja.ve">
+<span class="material-symbols-outlined">mail</span>
+                        maracaibo@cruzroja.ve
+                    </a>
+</div>
+</div>
+<!-- Card 3: RCF -->
+<div class="card-elevation rounded-xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 transition-all hover:border-primary/20">
+<div class="flex-grow">
+<div class="flex gap-2 mb-3">
+<span class="font-label-md text-label-md px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded text-[10px] uppercase tracking-wider">Nacional</span>
+<span class="font-label-md text-label-md px-2 py-0.5 bg-surface-container-highest text-on-surface-variant rounded text-[10px] uppercase tracking-wider">Servicio de Emergencia</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Restablecimiento de Contacto Familiar (RCF)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Emergencia — Terremotos 2024</p>
+</div>
+<div class="flex flex-col gap-3 w-full md:w-auto">
+<a class="flex items-center justify-center gap-2 bg-on-tertiary-container text-white px-6 py-3 rounded-xl font-label-md text-label-md active:scale-95 transition-all" href="tel:04227994880">
+<span class="material-symbols-outlined">call</span>
+                        04227994880
+                    </a>
+<a class="flex items-center justify-center gap-2 bg-secondary-container text-white px-6 py-3 rounded-xl font-label-md text-label-md active:scale-95 transition-all" href="mailto:proteccion@cruzroja.ve">
+<span class="material-symbols-outlined">mail</span>
+                        proteccion@cruzroja.ve
+                    </a>
+</div>
+</div>
+</div>
+<!-- Optional Map Indicator -->
+<div class="mt-12 rounded-xl overflow-hidden h-48 relative border border-outline-variant grayscale">
+<div class="absolute inset-0 bg-black/40 z-10 flex items-center justify-center pointer-events-none">
+<div class="bg-surface-container px-4 py-2 rounded-full border border-outline flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-md text-label-md">Sedes en Venezuela</span>
+</div>
+</div>
+<img class="w-full h-full object-cover opacity-60" data-alt="A dark, desaturated topographical map of Venezuela with small glowing amber dots highlighting major cities like Caracas, Maracaibo, and Valencia. The style is minimalist and high-utility, following a professional corporate aesthetic with high contrast between the jet-black water and charcoal landmass. Lighting is localized to the glowing city markers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqvwnJBM7sB-31vUI6xFN60jVzFHqeZTIURvvx7J04CP6WFm194fx6vgg556Ubjkg_dWHeveCvpHvCi-aob2B1Wt9q4qKjR9YmSgvr7YPHIAj4LvDuDevY8Uw4ASoeIXTWMKV-k7QzEs4KgCe1ZHdQPMLWIBwGenhZivGj1EhB4ZCz67BpXAb2pyiazQ3XyBplRloix4j_j4w47Sd3HOw1qzdZOQltbeL_x-FHwSkEFRTLl3ui9gNOsvzLo-ku7NlGfSZCieUBO0SI"/>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container shadow-lg border-t border-outline-variant">
+<div class="flex justify-around items-center h-16 w-full max-w-container-max-width mx-auto">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-[10px]">Voluntarios</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+<span class="font-label-md text-[10px]">Emergencia</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-label-md text-[10px]">Acopio</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label-md text-[10px]">Registro</span>
+</button>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-8 mb-20 md:mb-0 border-t border-outline-variant bg-surface-container-lowest dark:bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-4">
+<span class="font-label-md text-label-md text-on-surface-variant">© 2024 Pontugranito - Ayuda Humanitaria Venezuela</span>
+<div class="flex gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Privacidad</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Términos</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Contacto</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                // Potential hover effect logic
+            });
+        });
+    </script>
+</body></html>
