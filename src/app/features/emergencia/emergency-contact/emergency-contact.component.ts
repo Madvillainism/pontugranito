@@ -2,73 +2,126 @@ import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { ContactoEmergencia } from '../../../core/models/contacto-emergencia';
 
+/**
+ * @component EmergencyContactComponent
+ * @description
+ * Página de contactos de emergencia de Pontugranito.
+ * Muestra una lista de organismos humanitarios con sus datos de contacto,
+ * permitiendo llamar o enviar correo directamente desde la interfaz.
+ *
+ * Sigue el sistema de diseño definido en `docs/design.md`:
+ * - Tokens semánticos de Material Design (primary, secondary-container, on-tertiary-container)
+ * - Tipografía Manrope (headlines), Inter (body), JetBrains Mono (labels)
+ * - Material Symbols Outlined para iconografía
+ * - Layout mobile-first con expansión a `md:flex-row`
+ */
 @Component({
   selector: 'app-emergency-contact',
   standalone: true,
   imports: [NgClass],
   template: `
-    <section class="min-h-screen bg-neutral-950 px-4 py-8 sm:px-6 lg:px-8">
-      <header class="max-w-4xl mx-auto mb-8">
-        <h1
-          class="text-2xl sm:text-3xl font-bold text-venezuela-red border-b-2 border-venezuela-red pb-3 inline-block"
-        >
-          Contactos de Emergencia
-        </h1>
-        <p class="text-neutral-300 mt-2 text-sm sm:text-base">
-          Líneas directas para asistencia humanitaria
-        </p>
-      </header>
+    <!-- Main Content Canvas -->
+    <main class="w-full max-w-[1280px] mx-auto px-4 md:px-8 pt-8 pb-24">
 
-      <div class="max-w-4xl mx-auto space-y-4">
+      <!-- Header Section -->
+      <section class="mb-10">
+        <div class="flex items-center gap-2 mb-2">
+          <!-- Barra decorativa lateral (color tertiary/alert = coral muted) -->
+          <div class="h-8 w-1 bg-on-tertiary-container rounded-full"></div>
+          <h1 class="font-headline-md text-headline-md text-on-tertiary-container">
+            Contactos de Emergencia
+          </h1>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">
+          Líneas directas para asistencia humanitaria inmediata en territorio nacional.
+        </p>
+      </section>
+
+      <!-- Emergency Cards Grid -->
+      <div class="grid grid-cols-1 gap-6">
         @for (contacto of contactos; track contacto.id) {
           <article
-            class="bg-neutral-800 border border-neutral-700 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4"
+            class="card-elevation rounded-xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 transition-all hover:border-primary/20"
           >
-            <div class="flex-1">
-              <div class="flex items-center gap-2 mb-1">
+            <!-- Card Info -->
+            <div class="flex-grow">
+              <!-- Badges: Ámbito + Tipo -->
+              <div class="flex gap-2 mb-3">
                 <span
-                  class="text-xs font-medium px-2 py-0.5 rounded-full"
+                  class="font-label-md text-label-md px-2 py-0.5 rounded text-[10px] uppercase tracking-wider"
                   [ngClass]="{
-                    'bg-venezuela-blue/20 text-venezuela-blue border border-venezuela-blue/30': contacto.ambito === 'Nacional',
-                    'bg-venezuela-yellow/20 text-venezuela-yellow border border-venezuela-yellow/30': contacto.ambito === 'Regional',
-                    'bg-venezuela-red/20 text-venezuela-red border border-venezuela-red/30': contacto.ambito === 'Local'
+                    'bg-secondary-container text-on-secondary-container': contacto.ambito === 'Nacional',
+                    'bg-primary-fixed-dim/20 text-primary-fixed': contacto.ambito === 'Regional',
+                    'bg-tertiary-container/20 text-on-tertiary-container': contacto.ambito === 'Local'
                   }"
                 >
                   {{ contacto.ambito }}
                 </span>
-                <span class="text-xs text-neutral-400">{{ contacto.tipo }}</span>
+                <span class="font-label-md text-label-md px-2 py-0.5 bg-surface-container-highest text-on-surface-variant rounded text-[10px] uppercase tracking-wider">
+                  {{ contacto.tipo }}
+                </span>
               </div>
-              <h3 class="text-neutral-100 font-semibold">{{ contacto.nombre }}</h3>
-              <p class="text-neutral-300 text-sm mt-0.5">{{ contacto.direccion }}</p>
+
+              <!-- Nombre -->
+              <h2 class="font-headline-sm text-headline-sm text-primary mb-1">
+                {{ contacto.nombre }}
+              </h2>
+
+              <!-- Dirección -->
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                {{ contacto.direccion }}
+              </p>
             </div>
 
-            <div class="flex flex-col gap-2 shrink-0">
+            <!-- Action Buttons -->
+            <div class="flex flex-col gap-3 w-full md:w-auto shrink-0">
+              <!-- Llamar (coral muted = on-tertiary-container) -->
               <a
                 [href]="'tel:' + contacto.telefono"
-                class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-venezuela-red text-white rounded-lg text-sm font-medium hover:bg-red-700 transition"
+                class="flex items-center justify-center gap-2 bg-on-tertiary-container text-white px-6 py-3 rounded-xl font-label-md text-label-md active:scale-95 transition-all"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
+                <span class="material-symbols-outlined" style="font-size:20px;">call</span>
                 {{ contacto.telefono }}
               </a>
+
+              <!-- Correo (navy secondary) -->
               <a
                 [href]="'mailto:' + contacto.email"
-                class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-venezuela-blue text-white rounded-lg text-sm font-medium hover:bg-blue-800 transition"
+                class="flex items-center justify-center gap-2 bg-secondary-container text-white px-6 py-3 rounded-xl font-label-md text-label-md active:scale-95 transition-all"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+                <span class="material-symbols-outlined" style="font-size:20px;">mail</span>
                 {{ contacto.email }}
               </a>
             </div>
           </article>
         }
       </div>
-    </section>
+
+      <!-- Map Indicator Block -->
+      <div class="mt-12 rounded-xl overflow-hidden h-48 relative border border-outline-variant grayscale">
+        <div class="absolute inset-0 bg-black/40 z-10 flex items-center justify-center pointer-events-none">
+          <div class="bg-surface-container px-4 py-2 rounded-full border border-outline flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1; font-size:20px;">location_on</span>
+            <span class="font-label-md text-label-md text-on-surface">Sedes en Venezuela</span>
+          </div>
+        </div>
+        <!-- Placeholder oscuro del mapa -->
+        <div class="w-full h-full bg-surface-container-low flex items-center justify-center">
+          <span class="material-symbols-outlined text-outline" style="font-size:64px; font-variation-settings: 'FILL' 0, 'wght' 100;">map</span>
+        </div>
+      </div>
+
+    </main>
   `,
+  styles: [`
+    .card-elevation {
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background-color: #1e1e1e;
+    }
+  `],
 })
 export class EmergencyContactComponent {
+  /** Lista de contactos de emergencia humanitaria en Venezuela. */
   contactos: ContactoEmergencia[] = [
     {
       id: 1,
@@ -99,3 +152,4 @@ export class EmergencyContactComponent {
     },
   ];
 }
+
