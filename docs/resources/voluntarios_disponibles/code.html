@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pontugranito - Voluntarios Disponibles</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-fixed": "#dee0ff",
+                        "on-tertiary-fixed": "#410003",
+                        "primary-fixed": "#ffdf9e",
+                        "on-secondary-container": "#a8b4ff",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-tint": "#fabd00",
+                        "surface-container": "#201f1f",
+                        "on-secondary": "#08218a",
+                        "on-primary": "#3f2e00",
+                        "on-primary-fixed": "#261a00",
+                        "tertiary": "#ffe0dd",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#785900",
+                        "on-tertiary": "#680008",
+                        "primary": "#ffe4af",
+                        "on-error": "#690005",
+                        "background": "#131313",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed": "#ffdad6",
+                        "secondary-fixed-dim": "#bac3ff",
+                        "error-container": "#93000a",
+                        "on-surface-variant": "#d4c5ab",
+                        "surface-container-highest": "#353534",
+                        "outline-variant": "#4f4632",
+                        "on-tertiary-fixed-variant": "#930010",
+                        "on-background": "#e5e2e1",
+                        "on-primary-fixed-variant": "#5b4300",
+                        "surface-bright": "#393939",
+                        "inverse-on-surface": "#313030",
+                        "surface": "#131313",
+                        "surface-variant": "#353534",
+                        "on-tertiary-container": "#ac0c18",
+                        "primary-container": "#ffc107",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#fabd00",
+                        "secondary-container": "#2c3ea3",
+                        "tertiary-container": "#ffbab3",
+                        "on-secondary-fixed": "#00105c",
+                        "inverse-surface": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#293ca0",
+                        "secondary": "#bac3ff",
+                        "on-primary-container": "#6d5100",
+                        "tertiary-fixed-dim": "#ffb3ac",
+                        "surface-container-low": "#1c1b1b",
+                        "outline": "#9c8f78",
+                        "on-surface": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-desktop": "32px",
+                        "container-max-width": "1280px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-md-mobile": ["Manrope"],
+                        "headline-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #4f4632;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-background border-b border-outline-variant docked full-width top-0 z-50">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed dark:text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">Pontugranito</h1>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-label-md text-label-md text-primary dark:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors px-3 py-2 rounded-lg" href="#">Voluntarios</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors px-3 py-2 rounded-lg" href="#">Emergencia</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors px-3 py-2 rounded-lg" href="#">Acopio</a>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md text-label-md font-bold scale-95 active:scale-90 transition-transform">Registro</button>
+</div>
+<button class="md:hidden p-2 text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop py-8 mb-16">
+<!-- Header Section -->
+<section class="mb-10 space-y-2">
+<div class="flex items-center gap-2 text-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">Red de Apoyo</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary md:text-display-lg font-bold">Voluntarios Disponibles</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Profesionales y voluntarios certificados listos para brindar apoyo humanitario inmediato en todo el territorio.</p>
+</section>
+<!-- Search & Filter Bar -->
+<div class="mb-8 flex flex-col md:flex-row gap-4 items-center bg-surface-container-low p-4 rounded-xl border border-outline-variant/30">
+<div class="relative w-full md:flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-dim border border-outline-variant text-on-surface pl-10 pr-4 py-3 rounded-lg focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all font-body-md text-body-md" placeholder="Buscar por nombre o especialidad..." type="text"/>
+</div>
+<div class="flex gap-2 w-full md:w-auto">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-surface-container-highest text-on-surface px-4 py-3 rounded-lg font-label-md text-label-md hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+                    Filtrar
+                </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-secondary-container text-on-secondary-container px-4 py-3 rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">map</span>
+                    Ver Mapa
+                </button>
+</div>
+</div>
+<!-- Bento Grid / Cards Container -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Volunteer Card 1 -->
+<div class="glass-card rounded-2xl overflow-hidden flex flex-col group transition-all duration-300 hover:border-primary/20 hover:shadow-[0_0_20px_rgba(250,189,0,0.1)]">
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly Latin American male volunteer in his 40s, wearing a clean white clinical coat. He has a warm, trustworthy expression. The lighting is soft and studio-like with a dark neutral background, matching the sophisticated dark-mode aesthetic of the Pontugranito humanitarian application. The image style is sharp, clean, and corporate professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB92qcXYM0OBOyiunzNKlgrUnM9CxGfICCCPmRzpsgpHyCfIfbvStC2QAKQreKUex6bwA2BC7KGsKOsN6bk66gFIavvXq282ttMiSodEPgHL-Ah0h_2bdQfoqCxdC8N2t4Xa01gdCObOEcTc0TvCQnGXhNhqJ7-4daDxGbj8sMLL1MJp-FzKx2eOZTpKqiRzMTuFW7N0E5irlTVxzPZRBpPV2m7j2JFPs3Sz9f88FK7hO_jYVB1tC_vYxtbjYZfR4XEvewnloKby_9l"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-primary-fixed transition-colors">José Pérez</h3>
+<div class="flex gap-2 mt-1">
+<span class="bg-secondary-container/40 text-on-secondary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Médico</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 bg-success-container/20 text-[#4ade80] px-3 py-1 rounded-full border border-[#4ade80]/30">
+<span class="w-2 h-2 rounded-full bg-[#4ade80] animate-pulse"></span>
+<span class="font-label-md text-[12px] font-bold uppercase">Disponible</span>
+</div>
+</div>
+<div class="space-y-3 pt-2">
+<div class="flex items-center gap-3 text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm">location_on</span>
+<span>Maracaibo, Zulia</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm">phone_enabled</span>
+<span class="font-label-md">4146518102</span>
+</div>
+</div>
+</div>
+<div class="mt-auto p-4 border-t border-outline-variant/30 bg-surface-container-low flex flex-col gap-2">
+<button class="w-full bg-error-container text-on-error-container py-3 rounded-lg font-bold font-label-md text-label-md flex items-center justify-center gap-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+                        Llamar Emergencia
+                    </button>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-[#25d366]/20 text-[#25d366] py-3 rounded-lg font-bold font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-[#25d366]/30 transition-all border border-[#25d366]/30">
+<span class="material-symbols-outlined text-lg">chat</span>
+                            WhatsApp
+                        </button>
+<button class="bg-secondary-container text-on-secondary-container py-3 rounded-lg font-bold font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-lg">share</span>
+                            Compartir
+                        </button>
+</div>
+</div>
+</div>
+<!-- Volunteer Card 2 -->
+<div class="glass-card rounded-2xl overflow-hidden flex flex-col group transition-all duration-300 hover:border-primary/20 hover:shadow-[0_0_20px_rgba(250,189,0,0.1)]">
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male Venezuelan software engineer in his late 20s, wearing a modern dark polo shirt. He is smiling slightly, conveying intelligence and readiness. The photo has a shallow depth of field with subtle tech-themed lighting in the background, primarily deep blues and ambers to align with the humanitarian brand's palette. Corporate high-quality photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIz2QtAlR856ayfSfoKl2sryilrH1wXlRDtEmP0zPcXYrdAJJtfG5_FBjlwOcOmEkE2CKTz0_A24tuBwhPhFeqNbD-CwMvDS2b8JYsFbwiW5wvr9QjaAro60BqnJlNR97LH5-u6ln--_2NaXdMKlImUTZDE64aT416kNp4Kqms1Yp6NVpjFEw8jtAkjyZN6Hn2xcfWZlvlkvxzIDSYOjxIoc8DJK5rRG555wEvqY1yJ5jILZrRKhgIT1aZV40nOiTsuHxd_2PejTdc"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-primary-fixed transition-colors">Carlos Pérez</h3>
+<div class="flex gap-2 mt-1">
+<span class="bg-tertiary-container/30 text-on-tertiary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Programador</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 bg-success-container/20 text-[#4ade80] px-3 py-1 rounded-full border border-[#4ade80]/30">
+<span class="w-2 h-2 rounded-full bg-[#4ade80] animate-pulse"></span>
+<span class="font-label-md text-[12px] font-bold uppercase">Disponible</span>
+</div>
+</div>
+<div class="space-y-3 pt-2">
+<div class="flex items-center gap-3 text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm">location_on</span>
+<span>Maracaibo, Zulia</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary-fixed-dim text-sm">phone_enabled</span>
+<span class="font-label-md">4246967521</span>
+</div>
+</div>
+</div>
+<div class="mt-auto p-4 border-t border-outline-variant/30 bg-surface-container-low flex flex-col gap-2">
+<button class="w-full bg-error-container text-on-error-container py-3 rounded-lg font-bold font-label-md text-label-md flex items-center justify-center gap-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+                        Llamar Emergencia
+                    </button>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-[#25d366]/20 text-[#25d366] py-3 rounded-lg font-bold font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-[#25d366]/30 transition-all border border-[#25d366]/30">
+<span class="material-symbols-outlined text-lg">chat</span>
+                            WhatsApp
+                        </button>
+<button class="bg-secondary-container text-on-secondary-container py-3 rounded-lg font-bold font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-lg">share</span>
+                            Compartir
+                        </button>
+</div>
+</div>
+</div>
+<!-- Volunteer Card 3 (Simulated Empty/Invitation State) -->
+<div class="border-2 border-dashed border-outline-variant rounded-2xl flex flex-col items-center justify-center p-8 text-center group cursor-pointer hover:border-primary/50 transition-colors">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl text-on-surface-variant group-hover:text-primary transition-colors">add</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface-variant group-hover:text-primary">¿Quieres ayudar?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant/60 mt-2">Únete a nuestra red de voluntarios y profesionales.</p>
+<button class="mt-6 font-label-md text-label-md text-primary font-bold uppercase tracking-wider underline underline-offset-4">Registrarte aquí</button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl shadow-lg border-t border-outline-variant bg-surface-container">
+<div class="flex justify-around items-center h-16 w-full max-w-container-max-width mx-auto">
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-[10px] mt-0.5">Voluntarios</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 active:scale-95 transition-all duration-200 hover:text-primary dark:hover:text-primary-fixed" href="#">
+<span class="material-symbols-outlined">call</span>
+<span class="font-label-md text-[10px] mt-0.5">Emergencia</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 active:scale-95 transition-all duration-200 hover:text-primary dark:hover:text-primary-fixed" href="#">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-label-md text-[10px] mt-0.5">Acopio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 active:scale-95 transition-all duration-200 hover:text-primary dark:hover:text-primary-fixed" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label-md text-[10px] mt-0.5">Registro</span>
+</a>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-8 mb-20 border-t border-outline-variant bg-surface-container-lowest dark:bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-4 max-w-container-max-width mx-auto">
+<div class="flex flex-col items-center md:items-start gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Pontugranito</span>
+<p class="font-label-md text-label-md text-on-surface-variant">© 2024 Pontugranito - Ayuda Humanitaria Venezuela</p>
+</div>
+<div class="flex gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Privacidad</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Términos</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Contacto</a>
+</div>
+</div>
+</footer>
+<!-- FAB for quick access (Desktop only contextually) -->
+<button class="hidden md:flex fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<script>
+        // Simple ripple effect for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.width = '10px';
+                ripple.style.height = '10px';
+                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';</script></body></html>
