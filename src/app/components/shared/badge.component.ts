@@ -1,7 +1,7 @@
 import { Component, input, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-export type BadgeColorVariant = 'amarillo' | 'azul' | 'rojo' | 'verde' | 'blanco';
+export type BadgeColorVariant = 'amarillo' | 'azul' | 'rojo' | 'verde' | 'blanco' | 'gris';
 export type BadgeShapeVariant = 'redondeado' | 'cuadrado';
 export type BadgeTypeVariant = 'solid' | 'outline';
 
@@ -10,7 +10,7 @@ export type BadgeTypeVariant = 'solid' | 'outline';
     standalone: true,
     imports: [CommonModule],
     template: `
-    <span [class]="badgeClasses()">
+    <span [class]="badgeClasses()" [style]="badgeStyle()">
       <ng-content></ng-content>
     </span>
   `
@@ -21,37 +21,55 @@ export class BadgeComponent {
     variante = input<BadgeShapeVariant>('redondeado');
     tipo = input<BadgeTypeVariant>('solid');
 
-    // Propiedad computada para calcular los estilos del contenedor principal
+    // Propiedad computada para calcular las clases estructurales
     badgeClasses = computed(() => {
-        // Clases estructurales base y tipográficas extraídas de tus utilidades tipográficas
-        const baseStyle = 'px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest inline-flex items-center gap-1.5 justify-center border transition-all';
-
-        // 1. Mapeo de la forma física (Imágenes image_398dfa.png y image_398dbf.png)
+        const baseStyle = 'inline-flex items-center gap-1.5 justify-center transition-all';
         const shapes: Record<BadgeShapeVariant, string> = {
             redondeado: 'rounded-full',
-            cuadrado: 'rounded border-outline-variant/30' // Estilo exacto de las tarjetas institucionales
+            cuadrado: 'rounded'
+        };
+        return `${baseStyle} ${shapes[this.variante()]}`;
+    });
+
+    // Estilos inline para evitar problemas de opacidad con variables CSS en Tailwind.
+    // Los modificadores /XX de Tailwind no funcionan con var(--token) puros, así que
+    // usamos rgba() directamente con los valores del design system.
+    badgeStyle = computed(() => {
+        const base = 'padding: 2px 10px; font-size: 10px; font-weight: 700; font-family: "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.08em; border: 1px solid; display: inline-flex; align-items: center;';
+
+        const styles: Record<BadgeColorVariant, Record<BadgeTypeVariant, string>> = {
+            // Amarillo — primary tokens (#ffc107 / #fabd00)
+            amarillo: {
+                solid:   'background-color: var(--primary-container); color: var(--on-primary-container); border-color: transparent;',
+                outline: 'background-color: rgba(255, 193, 7, 0.12); color: var(--primary-fixed-dim); border-color: rgba(250, 189, 0, 0.4);'
+            },
+            // Azul — secondary tokens (#2c3ea3 / #bac3ff)
+            azul: {
+                solid:   'background-color: var(--secondary-container); color: var(--on-secondary-container); border-color: transparent;',
+                outline: 'background-color: rgba(44, 62, 163, 0.25); color: var(--secondary); border-color: rgba(186, 195, 255, 0.35);'
+            },
+            // Rojo — error tokens (#93000a / #ffb4ab)
+            rojo: {
+                solid:   'background-color: var(--error-container); color: var(--on-error-container); border-color: transparent;',
+                outline: 'background-color: rgba(147, 0, 10, 0.25); color: var(--error); border-color: rgba(255, 180, 171, 0.4);'
+            },
+            // Verde — sin token propio, valores literales
+            verde: {
+                solid:   'background-color: #14532d; color: #4ade80; border-color: transparent;',
+                outline: 'background-color: rgba(74, 222, 128, 0.12); color: #4ade80; border-color: rgba(74, 222, 128, 0.4);'
+            },
+            // Blanco — neutral puro
+            blanco: {
+                solid:   'background-color: #ffffff; color: #0a0a0a; border-color: transparent;',
+                outline: 'background-color: transparent; color: var(--on-surface); border-color: rgba(156, 143, 120, 0.5);'
+            },
+            // Gris — surface tokens
+            gris: {
+                solid:   'background-color: var(--surface-container-highest); color: var(--on-surface); border-color: transparent;',
+                outline: 'background-color: rgba(53, 53, 52, 0.6); color: var(--on-surface-variant); border-color: rgba(79, 70, 50, 0.7);'
+            },
         };
 
-        // 2. Mapeo de estilos Solidos (Fondo completo de contenedor)
-        const solidStyles: Record<BadgeColorVariant, string> = {
-            rojo: 'bg-error-container text-on-error-container border-transparent',
-            amarillo: 'bg-primary-container text-on-primary-container border-transparent',
-            azul: 'bg-primary-fixed text-on-primary-fixed border-transparent',
-            verde: 'bg-success-container text-on-success-container border-transparent',
-            blanco: 'bg-white text-neutral-950 border-transparent'
-        };
-
-        // 3. Mapeo de estilos Outline (Líneas de contorno y texto nativo, como image_398dbf.png)
-        const outlineStyles: Record<BadgeColorVariant, string> = {
-            rojo: 'bg-error-container/10 text-error border-error/40',
-            amarillo: 'bg-primary-container/10 text-primary-container border-primary-container/40',
-            azul: 'bg-primary-fixed/10 text-primary border-primary/40',
-            verde: 'bg-success-container/10 text-[#4ade80] border-[#4ade80]/30', // Verde vibrante de tu especificación
-            blanco: 'bg-transparent text-on-surface border-outline/40'
-        };
-
-        const currentStyle = this.tipo() === 'solid' ? solidStyles[this.color()] : outlineStyles[this.color()];
-
-        return `${baseStyle} ${shapes[this.variante()]} ${currentStyle}`;
+        return `${base} ${styles[this.color()][this.tipo()]}`;
     });
 }

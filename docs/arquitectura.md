@@ -30,3 +30,5 @@ La paleta de colores y tipografía se basan estrictamente en `docs/design.md` y 
 - Los nombres de los archivos deben seguir el patrón `nombre-componente.component.ts`.
 - Los componentes deben contener jsdoc para documentar su uso y propósito.
 - Coloca todos los componentes en la carpeta `src/app/components`. y separalos por modulos si es necesario.
+- Revisa cuales componentes se pueden reutilizar en varias paginas y cuales no.
+- Revisa cuales componentes ya podrian existir en y reutilizarlos
