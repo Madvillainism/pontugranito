@@ -63,7 +63,7 @@ import { BadgeComponent } from "../../../components/shared/badge.component";
       </app-boton>
       
       <div class="grid grid-cols-2 gap-2">
-        <app-boton color="verde" (click)="compartirWhatsApp()">
+        <app-boton color="blanco" (click)="compartirWhatsApp()">
           <span class="material-symbols-outlined text-lg">chat</span>
           WhatsApp
         </app-boton>

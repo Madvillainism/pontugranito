@@ -137,6 +137,14 @@ CREATE POLICY "insert_anonimo" ON personas
       }
     </section>
   `,
+  styles: [
+    `
+      .card-elevation {
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        background-color: #1e1e1e;
+      }
+    `,
+  ],
 })
 export class EmergencyContactComponent implements OnInit {
   protected personasService = inject(PersonasService);
