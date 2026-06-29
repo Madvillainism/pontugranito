@@ -14,7 +14,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'emergencia',
+    path: 'personas',
     loadComponent: () =>
       import('./features/emergencia/emergency-contact/emergency-contact.component').then(
         (m) => m.EmergencyContactComponent,
