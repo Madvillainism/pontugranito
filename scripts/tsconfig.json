@@ -1,15 +1,15 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
   "compilerOptions": {
-    // "include": [
-    //   "scripts/**/*"
-    // ],
-    // "exclude": [
-    //   "node_modules"
-    // ],
     // File Layout
-    "rootDir": "scripts",
-    "outDir": "scripts/dist/",
+    "rootDir": ".",
+    "outDir": "dist/",
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "node20",
