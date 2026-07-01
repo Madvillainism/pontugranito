@@ -32,11 +32,14 @@ export class PersonasService {
       if (error) {
         if (error.message?.includes('relation') || error.code === '42P01') {
           this.error.set(
-            'La tabla "personas" no existe. Crea la tabla desde el SQL Editor de Supabase.'
+            'La tabla "personas" no existe. Crea la tabla desde el SQL Editor de Supabase.',
           );
-        } else if (error.message?.includes('permission') || error.code === '42501') {
+        } else if (
+          error.message?.includes('permission') ||
+          error.code === '42501'
+        ) {
           this.error.set(
-            'RLS bloquea SELECT. Crea política: CREATE POLICY "select_publico" ON personas FOR SELECT USING (true);'
+            'RLS bloquea SELECT. Crea política: CREATE POLICY "select_publico" ON personas FOR SELECT USING (true);',
           );
         } else {
           this.error.set(error.message);
@@ -120,7 +123,7 @@ export class PersonasService {
           msg.includes('violates row-level security')
         ) {
           this.error.set(
-            'RLS bloquea INSERT. En Supabase > SQL Editor, ejecuta: CREATE POLICY "insert_anonimo" ON personas FOR INSERT WITH CHECK (true);'
+            'RLS bloquea INSERT. En Supabase > SQL Editor, ejecuta: CREATE POLICY "insert_anonimo" ON personas FOR INSERT WITH CHECK (true);',
           );
         } else if (msg.includes('relation') || msg.includes('does not exist')) {
           this.error.set(
