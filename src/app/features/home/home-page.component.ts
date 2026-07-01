@@ -92,11 +92,63 @@ import { RouterLink } from '@angular/router';
       </section>
 
       <!-- Bento Grid Actions -->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[400px]">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+       <!-- Refugios Temporales Card (Verde/Terciario) -->
+        <div
+          routerLink="/refugios"
+          class="bento-card md:col-span-2 min-h-[180px] group relative overflow-hidden bg-tertiary-container rounded-xl p-8 flex flex-col justify-end border border-white/5 cursor-pointer"
+        >
+          <div
+            class="absolute top-6 right-8 opacity-20 group-hover:opacity-40 transition-opacity text-on-tertiary-container"
+          >
+            <span
+              class="material-symbols-outlined text-[120px]"
+              data-icon="cabin"
+              >cabin</span
+            >
+          </div>
+          <div class="relative z-10">
+            <h3
+              class="font-headline-md text-headline-md text-on-tertiary-container mb-2"
+            >
+              Refugios Temporales
+            </h3>
+            <p
+              class="text-on-tertiary-container opacity-80 text-sm max-w-[240px]"
+            >
+              Albergues y refugios habilitados para brindar resguardo y atención a familias damnificadas.
+            </p>
+          </div>
+        </div>
+         <!-- Zonas Criticas Card (Light Amber) -->
+        <div
+          routerLink="/test-supabase"
+          class="bento-card md:col-span-2 min-h-[180px] group relative overflow-hidden bg-primary-fixed rounded-xl p-8 flex flex-col justify-end border border-white/5 cursor-pointer"
+        >
+          <div
+            class="absolute top-6 right-8 opacity-20 group-hover:opacity-40 transition-opacity text-on-primary-fixed"
+          >
+            <span
+              class="material-symbols-outlined text-[120px]"
+              data-icon="edit_note"
+              >edit_note</span
+            >
+          </div>
+          <div class="relative z-10 flex flex-col justify-end h-full">
+            <h3
+              class="font-headline-md text-headline-md text-on-primary-fixed mb-2"
+            >
+              Zonas Críticas
+            </h3>
+            <p class="text-on-primary-fixed opacity-80 text-sm max-w-xl">
+              Mapa interactivo de zonas críticas, alertas en tiempo real y puntos de ayuda.
+            </p>
+          </div>
+        </div>
         <!-- Voluntarios Card (Azul Profundo) -->
         <div
           routerLink="/voluntarios"
-          class="bento-card md:col-span-2 group relative overflow-hidden bg-secondary-container rounded-xl p-8 flex flex-col justify-end border border-white/5 cursor-pointer"
+          class="bento-card md:col-span-2 min-h-[180px] group relative overflow-hidden bg-secondary-container rounded-xl p-8 flex flex-col justify-end border border-white/5 cursor-pointer"
         >
           <div
             class="absolute top-6 right-8 opacity-20 group-hover:opacity-40 transition-opacity"
@@ -125,7 +177,7 @@ import { RouterLink } from '@angular/router';
         <!-- Personas en Emergencia Card (Rojo Coral) -->
         <div
           routerLink="/personas"
-          class="bento-card md:col-span-2 group relative overflow-hidden bg-error-container rounded-xl p-8 flex flex-col justify-end border border-white/5 cursor-pointer"
+          class="bento-card md:col-span-2 min-h-[180px] group relative overflow-hidden bg-error-container rounded-xl p-8 flex flex-col justify-end border border-white/5 cursor-pointer"
         >
           <div
             class="absolute top-6 right-8 opacity-20 group-hover:opacity-40 transition-opacity"
@@ -151,7 +203,7 @@ import { RouterLink } from '@angular/router';
         <!-- Centros de Acopio Card (Amarillo Ámbar) -->
         <div
           routerLink="/acopio"
-          class="bento-card md:col-span-2 group relative overflow-hidden bg-primary-container rounded-xl p-8 flex flex-col justify-end border border-white/5 cursor-pointer"
+          class="bento-card md:col-span-2 min-h-[180px] group relative overflow-hidden bg-primary-container rounded-xl p-8 flex flex-col justify-end border border-white/5 cursor-pointer"
         >
           <div
             class="absolute top-6 right-8 opacity-20 group-hover:opacity-40 transition-opacity text-on-primary-container"
@@ -175,33 +227,7 @@ import { RouterLink } from '@angular/router';
               suministros y alimentos.
             </p>
           </div>
-        </div>
-
-        <!-- Zonas Criticas Card (Light Amber) -->
-        <div
-          routerLink="/test-supabase"
-          class="bento-card md:col-span-2 group relative overflow-hidden bg-primary-fixed rounded-xl p-8 flex flex-col justify-end border border-white/5 cursor-pointer"
-        >
-          <div
-            class="absolute top-6 right-8 opacity-20 group-hover:opacity-40 transition-opacity text-on-primary-fixed"
-          >
-            <span
-              class="material-symbols-outlined text-[120px]"
-              data-icon="edit_note"
-              >edit_note</span
-            >
-          </div>
-          <div class="relative z-10">
-            <h3
-              class="font-headline-md text-headline-md text-on-primary-fixed mb-2"
-            >
-              Zonas Críticas
-            </h3>
-            <p class="text-on-primary-fixed opacity-80 text-sm max-w-[240px]">
-              Mapa interactivo de zonas críticas y puntos de ayuda.
-            </p>
-          </div>
-        </div>
+        </div> 
       </div>
 
       <!-- Secondary Info Cards -->
@@ -400,4 +426,4 @@ import { RouterLink } from '@angular/router';
     `,
   ],
 })
-export class HomePageComponent {}
+export class HomePageComponent { }

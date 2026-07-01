@@ -28,10 +28,34 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'refugios',
+    loadComponent: () =>
+      import('./features/emergencia/refugios-page/refugios-page.component').then(
+        (m) => m.RefugiosPageComponent,
+      ),
+  },
+  {
     path: 'test-supabase',
     loadComponent: () =>
       import('./features/test-supabase/test-supabase.component').then(
         (m) => m.TestSupabaseComponent,
+      ),
+  },
+  {
+    path: 'admin/login',
+    loadComponent: () =>
+      import('./features/admin/login-page.component').then((m) => m.LoginPageComponent),
+  },
+  {
+    path: 'admin/dashboard',
+    loadComponent: () =>
+      import('./features/admin/dashboard-page.component').then((m) => m.DashboardPageComponent),
+  },
+  {
+    path: 'admin/crear-refugio',
+    loadComponent: () =>
+      import('./features/admin/create-refugio-page.component').then(
+        (m) => m.CreateRefugioPageComponent,
       ),
   },
   {
