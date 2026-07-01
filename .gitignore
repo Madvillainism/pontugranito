@@ -40,3 +40,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Output files
+scripts/outputFiles
+scripts/node_modules
